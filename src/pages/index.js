@@ -1,21 +1,42 @@
-import React from "react"
-import { Link } from "gatsby"
+import React, { Component } from "react"
+import Navigation from "../components/UI/Navigation"
+import Sections from "../components/Sections/Sections"
+import Footer from "../components/Sections/Footer/Footer"
+import SweetScroll from "sweet-scroll"
+import { Helmet } from "react-helmet"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import "./index.scss"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+class IndexPage extends Component {
+  render() {
+    return (
+      <React.Fragment>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Sharks in Your Pocket</title>
+          <link rel="canonical" href="http://sharksinyourpocket.surge.sh/" />
+        </Helmet>
+        {/* NAV SECTION */}
+        <Navigation />
+        {/* SECTIONS */}
+        <Sections />
+        {/* FOOTER */}
+        <Footer />
+      </React.Fragment>
+    )
+  }
+
+  componentDidMount() {
+    // init scroll
+    new SweetScroll({
+      trigger: "a[href^='#']",
+      duration: 500, // Specifies animation duration in integer
+      easing: "easeOutExpo", // Specifies the pattern of easing
+      offset: 1,
+      vertical: true,
+      preventDefault: true,
+    })
+  }
+}
 
 export default IndexPage

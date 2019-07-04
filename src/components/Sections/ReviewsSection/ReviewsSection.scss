@@ -1,0 +1,91 @@
+@mixin numerator(
+  $number,
+  $paddingOne: 12px,
+  $paddingTwo: 18px,
+  $borderColor: white,
+  $borderThickness: 2px
+) {
+  content: $number;
+  border: $borderThickness solid $borderColor;
+  border-radius: 50%;
+  padding: $paddingOne $paddingTwo;
+  margin-right: 10px;
+}
+
+#reviews {
+  &:before {
+    @include numerator("2", 4px, 9px, #565656, 1px);
+  }
+}
+
+.reviews-section__column-wrapper {
+  max-width: 845px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.reviews-section__review-wrapper {
+  max-width: 379px;
+  overflow: hidden;
+  position: relative;
+  min-height: 440px;
+  margin-bottom: 100px;
+
+  @media all and(max-width: 1115px) {
+    margin: 0 auto 80px;
+    float: none !important;
+    max-width: 334px;
+    min-height: 425px;
+  }
+
+  &:nth-of-type(odd) {
+    float: left;
+  }
+
+  &:nth-of-type(even) {
+    float: right;
+  }
+}
+
+.reviews-section__quote-wrapper {
+  height: 300px;
+  margin-right: 45px;
+  padding: 0;
+  box-sizing: border-box;
+
+  @media all and(max-width: 1115px) {
+    margin: 0 0 50px;
+    height: auto;
+    float: left;
+  }
+}
+
+.reviews-section__author-wrapper {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 135px;
+
+  @media all and(max-width: 1115px) {
+    position: static;
+    clear: both;
+    margin: 0 auto;
+  }
+
+  img {
+    display: block;
+    border-radius: 50%;
+    border: 2px solid white;
+  }
+
+  p {
+    margin: 20px 0 10px;
+    line-height: 23px;
+    letter-spacing: 0.5px;
+    font-size: 0.95em;
+  }
+
+  em {
+    font-size: 0.95em;
+  }
+}

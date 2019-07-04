@@ -1,0 +1,214 @@
+@mixin numerator(
+  $number,
+  $paddingOne: 12px,
+  $paddingTwo: 18px,
+  $borderColor: white,
+  $borderThickness: 2px
+) {
+  content: $number;
+  border: $borderThickness solid $borderColor;
+  border-radius: 50%;
+  padding: $paddingOne $paddingTwo;
+  margin-right: 10px;
+}
+
+@mixin sponsorBox(
+  $firstCoordenate,
+  $secondCoordenate,
+  $width,
+  $height,
+  $marginTop: 0px
+) {
+  background: url("../../../images/sponsors-sprite.png") no-repeat
+    $firstCoordenate $secondCoordenate;
+  width: $width;
+  height: $height;
+  margin-top: $marginTop;
+}
+
+#book {
+  &:before {
+    @include numerator("1", 4px, 9px, #565656, 1px);
+  }
+}
+
+#book-section__cover-wrapper {
+  width: 440.23px;
+  float: left;
+  margin: 0 60px 90px 0;
+  position: relative;
+  overflow: hidden;
+
+  @media all and(max-width: 1253px) {
+    width: 100%;
+    margin: 0 0 9% 0;
+  }
+
+  img {
+    max-width: 100%;
+
+    @media all and(max-width: 1253px) {
+      margin: 0 auto;
+      display: block;
+    }
+  }
+}
+
+#book-section__description-wrapper {
+  margin-top: 61px;
+
+  > h1 {
+    max-width: 1080px;
+    margin: 0 0 75px;
+
+    @media all and(max-width: 600px) {
+      font-size: 10vw;
+      margin: 0 0 15%;
+    }
+  }
+
+  @media all and(max-width: 1253px) {
+    clear: both;
+    margin: 0 auto;
+    max-width: 475px;
+  }
+
+  > p:first-of-type {
+    @media all and(max-width: 360px) {
+      display: none;
+    }
+  }
+
+  button {
+    height: 75px;
+    width: 48%;
+    border: none;
+    font-family: "Gotham-Bold", arial, sans-serif;
+    font-size: 1.5em;
+    background-color: orange;
+    color: var(--mainColor);
+    border-radius: 9px;
+    //width: 100%;
+
+    @media all and(max-width: 1253px) {
+      width: 100%;
+    }
+
+    @media all and(max-width: 340px) {
+      width: 100%;
+    }
+
+    &:before {
+      content: "GET MY COPY NOW FOR JUST $12";
+
+      @media all and(max-width: 413px) {
+        content: "BUY NOW FOR JUST $12";
+      }
+
+      @media all and(max-width: 340px) {
+        content: "BUY NOW";
+      }
+    }
+
+    @media all and(max-width: 1253px) {
+      margin: 0 auto;
+      display: block;
+    }
+
+    @media all and(max-width: 667px) {
+      line-height: 40px;
+    }
+  }
+}
+
+#book-title {
+  margin: 0;
+  font-size: 2em;
+  font-family: "Gotham-Black", arial, sans-serif;
+  text-transform: uppercase;
+  margin-top: 60px;
+  letter-spacing: 1px;
+  line-height: 39px;
+
+  @media all and(max-width: 360px) {
+    display: none;
+  }
+}
+
+#punchline {
+  font-size: 1.5em;
+  line-height: 35px;
+  margin-bottom: 45px;
+
+  @media all and(max-width: 360px) {
+    margin-top: 0;
+  }
+}
+
+#offer {
+  margin: 10px 0 60px;
+  font-size: 0.8em;
+  letter-spacing: 0.5px;
+}
+
+#book-section__sponsor-wrapper {
+  clear: both;
+  max-width: 860px;
+  margin: 0 auto;
+  overflow: hidden;
+
+  > div {
+    &:nth-of-type(1) {
+      @include sponsorBox(-3px, -7px, 252px, 54px, 9px);
+    }
+
+    &:nth-of-type(2) {
+      @include sponsorBox(-259px, -1px, 120px, 46px);
+    }
+
+    &:nth-of-type(3) {
+      @include sponsorBox(-381px, -4px, 114.38px, 40px, 6px);
+    }
+
+    &:nth-of-type(4) {
+      @include sponsorBox(-497px, -12px, 219.3px, 33px, 14px);
+      margin-right: 0;
+    }
+  }
+}
+
+.book-section__sponsor {
+  float: left;
+  margin-right: 50px;
+
+  @media all and(max-width: 1134px) {
+    margin: 0 auto 50px !important;
+    float: none;
+
+    &:last-of-type {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  @media all and(max-width: 371px) {
+    margin: 0 auto 45px !important;
+
+    &:first-of-type {
+      max-width: 252px !important;
+      padding-bottom: 21% !important;
+      background-position: -2px -6px !important;
+      background-size: 285% !important;
+      width: auto !important;
+      height: auto !important;
+    }
+
+    &:last-of-type {
+      max-width: 198px !important;
+      padding-bottom: 16% !important;
+      background-position: 99.7% 42% !important;
+      background-size: 323% !important;
+      width: auto !important;
+      height: auto !important;
+    }
+  }
+}

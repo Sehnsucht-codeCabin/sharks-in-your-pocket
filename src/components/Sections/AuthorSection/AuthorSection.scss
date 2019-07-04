@@ -1,0 +1,254 @@
+@mixin numerator(
+  $number,
+  $paddingOne: 12px,
+  $paddingTwo: 18px,
+  $borderColor: white,
+  $borderThickness: 2px
+) {
+  content: $number;
+  border: $borderThickness solid $borderColor;
+  border-radius: 50%;
+  padding: $paddingOne $paddingTwo;
+  margin-right: 10px;
+}
+
+#author {
+  &:before {
+    @include numerator("3", 4px, 9px, #565656, 1px);
+  }
+
+  + .section-sub-content-wrapper {
+    > div {
+      &:first-of-type {
+        margin: 0 auto;
+        max-width: 750px;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+#author-section__pic-wrapper {
+  width: 200px;
+  float: left;
+  position: relative;
+  overflow: visible;
+
+  @media all and (max-width: 900px) {
+    float: none;
+    margin: 88px auto 0;
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 2px solid var(--mainColor);
+  }
+}
+
+#author-section__social-wrapper {
+  width: 180px;
+  overflow: hidden;
+  position: absolute;
+  bottom: -80px;
+  left: 50%;
+
+  @media all and (max-width: 900px) {
+    bottom: auto;
+    top: -88px;
+  }
+
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+
+  > div {
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--mainColor);
+    box-sizing: border-box;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+
+    @media all and (min-width: 1024px) {
+      &:hover {
+        background-color: orange;
+        border-color: orange;
+      }
+    }
+
+    i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-size: 1.3em;
+
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    &:first-of-type {
+      float: left;
+    }
+
+    &:nth-of-type(2) {
+      position: absolute;
+      top: 0;
+      left: 50%;
+
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
+    }
+
+    &:last-of-type {
+      float: right;
+    }
+  }
+}
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-sun-o {
+  &:before {
+    content: "\f185";
+  }
+}
+
+.fa-moon-o {
+  &:before {
+    content: "\f186";
+  }
+}
+
+.fa-bookmark-o {
+  &:before {
+    content: "\f097";
+  }
+}
+
+.fa-flag-o {
+  &:before {
+    content: "\f11d";
+  }
+}
+
+.fa-twitter {
+  &:before {
+    content: "\f099";
+  }
+}
+
+.fa-facebook {
+  &:before {
+    content: "\f09a";
+  }
+}
+
+.fa-linkedin {
+  &:before {
+    content: "\f0e1";
+  }
+}
+
+.fa-paper-plane {
+  &:before {
+    content: "\f1d8";
+  }
+}
+
+#author-section__bio-wrapper {
+  line-height: 35px;
+  font-size: 1.2em;
+  float: left;
+  width: calc(100% - 200px);
+  margin: 0;
+
+  @media all and (max-width: 900px) {
+    float: none;
+    width: 100%;
+  }
+
+  div {
+    border: 2px solid white;
+    padding: 15px 20px;
+    border-radius: 15px;
+    position: relative;
+    margin: 55px 0 0 65px;
+
+    @media all and (max-width: 900px) {
+      margin: 55px auto 0;
+      max-width: 485px;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 63px;
+      left: -50px;
+      border: 25px solid;
+      border-color: white white transparent transparent;
+
+      @media all and (max-width: 900px) {
+        top: -50px;
+        left: 50%;
+
+        border-color: transparent transparent white;
+
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+      }
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 65px;
+      left: -45px;
+      border: 23px solid;
+      border-color: #1e2124 #1e2124 transparent transparent;
+
+      @media all and (max-width: 900px) {
+        top: -45px;
+        left: 50%;
+
+        border-color: transparent transparent #1e2124;
+
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+      }
+    }
+
+    p {
+      margin: 0 0 10px;
+    }
+  }
+}

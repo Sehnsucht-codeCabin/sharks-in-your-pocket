@@ -1,0 +1,224 @@
+@mixin numerator(
+  $number,
+  $paddingOne: 12px,
+  $paddingTwo: 20px,
+  $borderColor: white,
+  $borderThickness: 2px
+) {
+  content: $number;
+  border: $borderThickness solid $borderColor;
+  border-radius: 50%;
+  padding: $paddingOne $paddingTwo;
+  margin-right: 22px;
+  @media all and (max-width: 500px) {
+    position: absolute;
+    left: 0px;
+    top: calc(100% / 2 - 58px / 2);
+    padding: 9px 20px;
+  }
+}
+
+#nav-bar {
+  width: 60px;
+  height: 100vh;
+  border-left: 1px solid var(--mainColor);
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: var(--backgroundColor);
+  overflow: visible;
+  z-index: 9999;
+}
+
+#nav-bar__hamburguer-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 38px;
+
+  padding: 0;
+  background-color: transparent;
+  border: none;
+
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  span {
+    width: 30px;
+    height: 2px;
+    position: absolute;
+    top: 18px;
+    left: 5px;
+
+    background-color: var(--mainColor);
+
+    -webkit-transition: all 0.1s ease;
+    -moz-transition: all 0.1s ease;
+    -ms-transition: all 0.1s ease;
+    -o-transition: all 0.1s ease;
+    transition: all 0.1s ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: var(--mainColor);
+
+      -webkit-transition: all 0.2s ease;
+      -moz-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+      -o-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+
+      -webkit-transform-origin: 0% 50%;
+      -moz-transform-origin: 0% 50%;
+      -ms-transform-origin: 0% 50%;
+      -o-transform-origin: 0% 50%;
+      transform-origin: 0% 50%;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: var(--mainColor);
+
+      -webkit-transition: all 0.2s ease;
+      -moz-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+      -o-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+
+      -webkit-transform-origin: 0% 50%;
+      -moz-transform-origin: 0% 50%;
+      -ms-transform-origin: 0% 50%;
+      -o-transform-origin: 0% 50%;
+      transform-origin: 0% 50%;
+    }
+  }
+}
+
+nav {
+  overflow: hidden;
+  width: calc(100% - 60px);
+  box-sizing: border-box;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 60px;
+  z-index: 9998;
+
+  -ms-transform: translateY(-100%); /* IE 9 */
+  -webkit-transform: translateY(-100%); /* Safari */
+  transform: translateY(-100%); /* Standard syntax */
+
+  -webkit-transition: transform 0.2s ease-in-out;
+  -moz-transition: transform 0.2s ease-in-out;
+  -ms-transition: transform 0.2s ease-in-out;
+  -o-transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+
+  will-change: transform;
+
+  @media all and (max-width: 768px) {
+    width: 100%;
+    left: 0;
+  }
+
+  ul {
+    width: calc(100% - 90px);
+    padding: 0;
+    margin: 0 0 0 30px;
+    border: none;
+    overflow: hidden;
+    height: 100%;
+
+    @media all and (max-width: 768px) {
+      width: calc(100% - 60px);
+      margin: 0;
+    }
+  }
+}
+
+.menu-link {
+  &:first-of-type {
+    span:before {
+      @include numerator("1");
+    }
+  }
+
+  &:nth-of-type(2) {
+    span:before {
+      @include numerator("2");
+    }
+  }
+
+  &:nth-of-type(3) {
+    span:before {
+      @include numerator("3");
+    }
+  }
+
+  &:nth-of-type(4) {
+    span:before {
+      @include numerator("4");
+    }
+  }
+
+  &:nth-of-type(5) {
+    span:before {
+      @include numerator("5");
+    }
+  }
+}
+
+.menu-item {
+  list-style-type: none;
+  float: left;
+  width: 100%;
+  height: 25%;
+  border-bottom: 1px solid var(--mainColor);
+  box-sizing: border-box;
+  position: relative;
+  background-color: rgba(30, 33, 36, 0.95);
+
+  span {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    font-weight: 300;
+    font-size: 1.5em;
+    margin-right: 61px;
+
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+
+    @media all and (max-width: 768px) {
+      left: 30px;
+    }
+
+    @media all and (max-width: 500px) {
+      padding-left: 79px;
+    }
+
+    // &:before {
+    //   @media all and (max-width: 400px) {
+    //     font-size: 1.4em;
+    //   }
+    // }
+  }
+}

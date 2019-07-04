@@ -1,0 +1,574 @@
+/*! HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/ */
+
+/* ==========================================================================
+    CSS variables
+ ========================================================================== */
+:root {
+  --mainColor: white;
+  --backgroundColor: #1e2124;
+  --mainFont: "Droid Serif";
+}
+
+/* ==========================================================================
+   Emebedded Fonts
+   ========================================================================== */
+@font-face {
+  font-family: "Gotham-Black";
+  src: url("../fonts/Gotham-Black_gdi.eot");
+  src: url("../fonts/Gotham-Black_gdi.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Gotham-Black_gdi.woff") format("woff"),
+    url("../fonts/Gotham-Black_gdi.ttf") format("truetype"),
+    url("../fonts/Gotham-Black_gdi.otf") format("opentype"),
+    url("../fonts/Gotham-Black_gdi.svg#Gotham-Black") format("svg");
+  font-weight: 450;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-2212;
+}
+
+@font-face {
+  font-family: "Gotham-Bold";
+  src: url("../fonts/Gotham-Bold_gdi.eot");
+  src: url("../fonts/Gotham-Bold_gdi.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Gotham-Bold_gdi.woff") format("woff"),
+    url("../fonts/Gotham-Bold_gdi.ttf") format("truetype"),
+    url("../fonts/Gotham-Bold_gdi.otf") format("opentype"),
+    url("../fonts/Gotham-Bold_gdi.svg#Gotham-Bold") format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-2212;
+}
+
+@font-face {
+  font-family: "FontAwesome";
+  src: url("../fonts/fontawesome-webfont.eot?v=4.6.3");
+  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.6.3")
+      format("embedded-opentype"),
+    url("../fonts/fontawesome-webfont.woff2?v=4.6.3") format("woff2"),
+    url("../fonts/fontawesome-webfont.woff?v=4.6.3") format("woff"),
+    url("../fonts/fontawesome-webfont.ttf?v=4.6.3") format("truetype"),
+    url("../fonts/fontawesome-webfont.svg?v=4.6.3#fontawesomeregular")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ==========================================================================
+ Sass variables
+ ========================================================================== */
+$main-color: white;
+$backgroundColor: #1e2124;
+$main-font: "Droid Serif";
+
+/* ==========================================================================
+ Mixins
+ ========================================================================== */
+@mixin numerator(
+  $number,
+  $paddingOne: 12px,
+  $paddingTwo: 18px,
+  $borderColor: white,
+  $borderThickness: 2px
+) {
+  content: $number;
+  border: $borderThickness solid $borderColor;
+  border-radius: 50%;
+  padding: $paddingOne $paddingTwo;
+  margin-right: 10px;
+}
+
+@mixin sponsorBox(
+  $firstCoordenate,
+  $secondCoordenate,
+  $width,
+  $height,
+  $marginTop: 0px
+) {
+  background: url("../images/sponsors-sprite.png") no-repeat $firstCoordenate
+    $secondCoordenate;
+  width: $width;
+  height: $height;
+  margin-top: $marginTop;
+}
+
+/* ==========================================================================
+ Default styles
+ ========================================================================== */
+
+html,
+body {
+  color: $main-color;
+  font-size: 1em;
+  line-height: 1.4;
+  font-family: $main-font, arial, sans-serif;
+  margin: 0;
+  border: none;
+  padding: 0;
+  background-color: #1e2124;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+:focus {
+  outline: none;
+}
+
+h1 {
+  margin: 0 0 20px;
+  font-family: "Gotham-Black", arial, sans-serif;
+  font-size: 4.5em;
+  line-height: 1.02em;
+}
+
+h2 {
+  text-align: center;
+}
+
+h4 {
+  font-family: "Droid Serif", arial, sans-serif;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+/* ==========================================================================
+ Author's custom styles
+ ========================================================================== */
+
+#features {
+  &:before {
+    @include numerator("2", 4px, 9px, #565656, 1px);
+  }
+}
+
+.features-section__block {
+  overflow: hidden;
+  margin: 0 auto 90px;
+  max-width: 960px;
+
+  @media all and(max-width: 1240px) {
+    margin-bottom: 0;
+
+    &:last-of-type {
+      .features-section__feature-wrapper {
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.features-section__feature-wrapper {
+  max-width: 442px;
+  box-sizing: border-box;
+
+  @media all and(max-width: 1240px) {
+    margin: 0 auto 70px;
+    float: none !important;
+  }
+
+  &:first-of-type {
+    float: left;
+  }
+
+  &:nth-of-type(2) {
+    float: right;
+  }
+
+  > div {
+    &:first-of-type {
+      font-size: 5em;
+      width: 80px;
+      height: 80px;
+      margin: 0 auto;
+      position: relative;
+      border: 2px solid white;
+      padding: 30px;
+      border-radius: 50%;
+
+      i {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}
+
+.features-section__feature-title {
+  text-align: center;
+  font-size: 2em;
+  margin: 15px 0 55px;
+  letter-spacing: 0.5px;
+}
+
+.features-section__feature-description {
+  font-size: 1.2em;
+  line-height: 33px;
+  margin-bottom: 0;
+  box-sizing: border-box;
+  border: 2px solid white;
+  border-radius: 15px;
+  padding: 15px 24px;
+  position: relative;
+  overflow: visible;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: -66px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 33px solid;
+    border-color: transparent transparent #fff transparent;
+
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 30px solid;
+    border-color: transparent transparent #1e2124 transparent;
+
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+}
+
+// .reviews-section__column-wrapper {
+//   max-width: 845px;
+//   margin: 0 auto;
+//   overflow: hidden;
+// }
+
+// .reviews-section__review-wrapper {
+//   max-width: 379px;
+//   overflow: hidden;
+//   position: relative;
+//   min-height: 440px;
+//   margin-bottom: 100px;
+
+//   @media all and(max-width: 1115px) {
+//     margin: 0 auto 80px;
+//     float: none !important;
+//     max-width: 334px;
+//     min-height: 425px;
+//   }
+
+//   &:nth-of-type(odd) {
+//     float: left;
+//   }
+
+//   &:nth-of-type(even) {
+//     float: right;
+//   }
+// }
+
+// .reviews-section__author-wrapper {
+//   position: absolute;
+//   bottom: 0;
+//   right: 0;
+//   width: 135px;
+
+//   @media all and(max-width: 1115px) {
+//     position: static;
+//     clear: both;
+//     margin: 0 auto;
+//   }
+
+//   img {
+//     display: block;
+//     border-radius: 50%;
+//     border: 2px solid white;
+//   }
+
+//   p {
+//     margin: 20px 0 10px;
+//     line-height: 23px;
+//     letter-spacing: 0.5px;
+//     font-size: 0.95em;
+//   }
+
+//   em {
+//     font-size: 0.95em;
+//   }
+// }
+
+// .reviews-section__quote-wrapper {
+//   height: 300px;
+//   margin-right: 45px;
+//   padding: 0;
+//   box-sizing: border-box;
+
+//   @media all and(max-width: 1115px) {
+//     margin: 0 0 50px;
+//     height: auto;
+//     float: left;
+//   }
+// }
+
+.balloon {
+  border-radius: 15px;
+  border: 2px solid white;
+  overflow: hidden;
+  padding: 15px 20px;
+  line-height: 37px;
+  font-size: 1.2em;
+  position: relative;
+  overflow: visible;
+
+  @media all and(max-width: 1115px) {
+    margin: 0;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: 64px;
+    bottom: -50px;
+    border: 25px solid;
+    border-color: white white transparent transparent;
+
+    @media all and(max-width: 1115px) {
+      left: 50%;
+      right: auto;
+
+      -webkit-transform: translateX(-50%);
+
+      border-color: white transparent transparent;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: 66px;
+    bottom: -45px;
+    border: 24px solid;
+    border-color: #1e2124 #1e2124 transparent transparent;
+
+    @media all and(max-width: 1115px) {
+      left: 50%;
+      right: auto;
+
+      -webkit-transform: translateX(-50%);
+
+      border-color: #1e2124 transparent transparent;
+    }
+  }
+}
+
+/* ==========================================================================
+ Helper classes
+ ========================================================================== */
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+.up:before,
+.down:after {
+  top: 0 !important;
+}
+
+.transparent {
+  background-color: transparent !important;
+}
+
+.pop-disclaimer {
+  display: block !important;
+  opacity: 1 !important;
+}
+
+.rotate-first-span {
+  &:before {
+    -webkit-transform: rotate(-35deg) !important;
+    -moz-transform: rotate(-35deg) !important;
+    -o-transform: rotate(-35deg) !important;
+    -ms-transform: rotate(-35deg) !important;
+    transform: rotate(-35deg) !important;
+
+    width: 35px !important;
+  }
+}
+
+.rotate-last-span {
+  &:after {
+    -webkit-transform: rotate(35deg) !important;
+    -moz-transform: rotate(35deg) !important;
+    -o-transform: rotate(35deg) !important;
+    -ms-transform: rotate(35deg) !important;
+    transform: rotate(35deg) !important;
+
+    width: 35px !important;
+  }
+}
+
+.move-menu {
+  transform: translateY(0);
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  -moz-transform: translateY(0);
+}
+
+.move-label {
+  transform: translate(-10px, 40px);
+  -webkit-transform: translate(-10px, 40px);
+  -ms-transform: translate(-10px, 40px);
+  -o-transform: translate(-10px, 40px);
+  -moz-transform: translate(-10px, 40px);
+
+  font-size: 0.85em;
+  color: grey;
+}
+
+/* #region SWEET ALERT modified classes */
+
+.customAlert {
+  background-color: #1e2124;
+  border-radius: 0;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+}
+
+.swal-content {
+  max-width: 60%;
+  margin: 0 auto;
+  padding: 45px 0 0;
+  color: white;
+  line-height: 51px;
+  font-size: 32px;
+
+  > div {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+  }
+
+  @media all and(max-width: 430px) {
+    line-height: 42px;
+    font-size: 25px;
+    max-width: 80%;
+  }
+
+  @media all and(max-width: 330px) and(max-width: 650px) {
+    line-height: 35px;
+    font-size: 20px;
+    padding-top: 30px !important;
+  }
+}
+
+.swal-footer {
+  margin: 0;
+}
+
+.swal-button-container {
+  display: block;
+  position: absolute;
+  top: 24px;
+  right: 22px;
+}
+
+.swal-button {
+  display: block;
+  margin: 0 auto;
+  border-radius: 0;
+  width: 48px;
+  height: 48px;
+  background-color: transparent !important;
+  border: none;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 23px;
+    left: calc(100% / 2 - 48px / 2);
+    width: 48px;
+    height: 2px;
+    background-color: white;
+
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 23px;
+    left: calc(100% / 2 - 48px / 2);
+    width: 48px;
+    height: 2px;
+    background-color: white;
+
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+}
+
+.swal-icon--success::before,
+.swal-icon--success::after,
+.swal-icon--success__hide-corners {
+  display: none;
+}
+
+.swal-icon--success__line--long {
+  width: 47px;
+  right: 7px;
+  top: 38px;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-animation: animateSuccessLong 0.75s;
+  animation: animateSuccessLong 0.75s;
+}
+
+/* #endregion */

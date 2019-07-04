@@ -1,0 +1,283 @@
+@mixin numerator(
+  $number,
+  $paddingOne: 12px,
+  $paddingTwo: 18px,
+  $borderColor: white,
+  $borderThickness: 2px
+) {
+  content: $number;
+  border: $borderThickness solid $borderColor;
+  border-radius: 50%;
+  padding: $paddingOne $paddingTwo;
+  margin-right: 10px;
+}
+
+#contact {
+  &:before {
+    @include numerator("4", 4px, 9px, #565656, 1px);
+  }
+}
+
+#contact-section__block-wrapper {
+  margin: 0 auto;
+  overflow: hidden;
+  max-width: 760px;
+}
+
+.contact-section__contact-block {
+  box-sizing: border-box;
+  overflow: hidden;
+  float: left;
+  height: 255px;
+  position: relative;
+
+  &:not(:last-of-type) {
+    margin-right: 39px;
+  }
+
+  @media all and (max-width: 1164px) {
+    height: 235px;
+  }
+
+  &:first-of-type {
+    @media all and (max-width: 1164px) {
+      max-width: 178px;
+    }
+  }
+
+  &:nth-of-type(2) {
+    @media all and (max-width: 1164px) {
+      max-width: 198px;
+    }
+  }
+
+  &:last-of-type {
+    @media all and (max-width: 1164px) {
+      max-width: 203px;
+    }
+  }
+
+  @media all and (max-width: 1164px) {
+    float: none;
+    margin: 0 auto 60px !important;
+  }
+
+  > div {
+    &:first-of-type {
+      border-radius: 50%;
+      border: 2px solid white;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 110px;
+      height: 110px;
+
+      @media all and (max-width: 1164px) {
+        position: relative;
+        margin: 0 auto;
+      }
+
+      p {
+        margin: 0;
+        font-size: 1.5em;
+        letter-spacing: 0.5px;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &:last-of-type {
+      display: block;
+      float: left;
+      margin-left: 30px;
+      font-size: 1.2em;
+      line-height: 33px;
+      border: 2px solid white;
+      padding: 10px 16px;
+      border-radius: 15px;
+      position: relative;
+      overflow: visible;
+
+      @media all and (max-width: 1164px) {
+        width: 100%;
+        box-sizing: border-box;
+        margin-left: 0;
+        float: none;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+      }
+
+      &:before {
+        content: "";
+        width: 0;
+        height: 0;
+        border: 15px solid;
+        border-color: var(--mainColor) transparent transparent var(--mainColor);
+        position: absolute;
+        bottom: -30px;
+        left: 45px;
+
+        @media all and (max-width: 1164px) {
+          bottom: auto;
+          left: 50%;
+          top: -30px;
+
+          -webkit-transform: translateX(-50%);
+          -moz-transform: translateX(-50%);
+          -o-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+
+          border-color: transparent transparent var(--mainColor);
+        }
+      }
+
+      &:after {
+        content: "";
+        width: 0;
+        height: 0;
+        border: 13px solid;
+        border-color: var(--backgroundColor) transparent transparent
+          var(--backgroundColor);
+        position: absolute;
+        bottom: -25px;
+        left: 47px;
+
+        @media all and (max-width: 1164px) {
+          bottom: auto;
+          left: 50%;
+          top: -25px;
+
+          -webkit-transform: translateX(-50%);
+          -moz-transform: translateX(-50%);
+          -o-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+
+          border-color: transparent transparent var(--backgroundColor);
+        }
+      }
+    }
+  }
+
+  &:last-of-type {
+    > div {
+      &:first-of-type {
+        i {
+          font-size: 3em;
+          position: absolute;
+          top: 50%;
+          left: 46%;
+
+          -webkit-transform: translate(-50%, -50%);
+          -moz-transform: translate(-50%, -50%);
+          -o-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  }
+}
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-paper-plane {
+  &:before {
+    content: "\f1d8";
+  }
+}
+
+.move-label {
+  transform: translate(-10px, 40px);
+  -webkit-transform: translate(-10px, 40px);
+  -ms-transform: translate(-10px, 40px);
+  -o-transform: translate(-10px, 40px);
+  -moz-transform: translate(-10px, 40px);
+
+  font-size: 0.85em;
+  color: grey;
+}
+
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 70px;
+
+  label {
+    position: absolute;
+    font-size: 1.2em;
+    left: 17px;
+
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+
+    &:first-of-type {
+      top: 15px;
+    }
+
+    &:last-of-type {
+      top: 100px;
+    }
+  }
+
+  input {
+    width: 100%;
+    height: 55px;
+    background-color: transparent;
+    border: 2px solid white;
+    font-family: "Droid Serif", arial, sans-serif;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    font-size: 1.2em;
+    color: white;
+  }
+
+  button {
+    font-size: 1.5em;
+    height: 75px;
+    font-family: "Gotham-Bold", arial, sans-serif;
+    text-transform: uppercase;
+    color: white;
+    background-color: orange;
+    width: 100%;
+    border: none;
+    border-radius: 9px;
+
+    &:before {
+      content: "Get my first two chapters";
+
+      @media all and (max-width: 627px) {
+        content: "Go for it";
+      }
+    }
+  }
+}

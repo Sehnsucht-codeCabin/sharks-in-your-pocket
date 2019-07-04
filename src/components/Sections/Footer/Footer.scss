@@ -1,0 +1,38 @@
+footer {
+  max-width: 435px;
+  margin: 0 auto 20px;
+  overflow: hidden;
+  padding-right: 60px;
+
+  @media all and (max-width: 768px) {
+    max-width: 220px;
+    margin-bottom: 30px;
+  }
+
+  p {
+    font-size: 0.8em;
+    color: grey;
+    margin: 0;
+    text-align: center;
+
+    @media all and (max-width: 768px) {
+      width: 100% !important;
+      float: none !important;
+    }
+
+    &:first-of-type {
+      width: 180px;
+      float: left;
+    }
+
+    &:last-of-type {
+      width: 205px;
+      float: right;
+      cursor: pointer;
+
+      @media all and (max-width: 768px) {
+        margin-top: 7px;
+      }
+    }
+  }
+}
